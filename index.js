@@ -34,5 +34,5 @@ function getRandomIntInclusive(min, max) {
  
 
 app.listen (PORT, () => {
-    console.log('app is running');
+    console.log('app is ongoing');
 });
