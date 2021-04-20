@@ -6,7 +6,7 @@ let PORT;
 if (process.env.PORT){
     PORT = process.env.PORT 
 }else{
-    PORT = 4000;
+    PORT = 2000;
 };
 
 app.set('view engine', 'ejs');
