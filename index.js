@@ -79,13 +79,15 @@ app.delete("/api/qoute", (req, res) => {
 })
 
 app.put("/api/qoute", (req, res) =>{
-    fs.readFile('./json/qoute.json', 'utf8', (err, change) =>{
+    fs.readFile('./json/qoute.json', 'utf8', function(err, change){
         let update = JSON.parse(change);
         let qouteReplace = req.body.qoute;
-        update.splice(4, 0, qouteReplace);
+        let integer = req.body.id;
+        let int = parseInt(integer);
+        update.splice(int, 0, qouteReplace);
         let updated = JSON.stringify(update);
 
-        fs.writeFile('./json/qoute', updated, 'utf8', (err) =>{
+        fs.writeFile('./json/qoute.json', updated, 'utf8', (err) =>{
             res.send(update);
         }) 
         
@@ -95,5 +97,5 @@ app.put("/api/qoute", (req, res) =>{
 
 
 app.listen(PORT, () => {
-    console.log('app is ongoing');
+    console.log('server is running');
 });
